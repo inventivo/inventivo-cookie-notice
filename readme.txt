@@ -10,7 +10,7 @@ Author URI:   https://www.inventivo.de
 Tags: cookie notice, cookie hinweis, eu cookie richtlinie, cookie popup, inventivo
 Requires at least: 3.0
 Tested up to: 4.9.5
-Stable tag: 4.9.5
+Stable tag: 0.0.1
 License:      GPL2
 License URI:  https://www.gnu.org/licenses/gpl-2.0.html
 
