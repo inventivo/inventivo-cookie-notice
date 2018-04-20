@@ -3,13 +3,13 @@ Contributors: Nils Harder (inventivo.de)
 Plugin Name:  Cookie Notice | inventivo
 Plugin URI:   https://www.inventivo.de/wordpress-agentur/wordpress-plugins
 Description:  Anzeige eines Hinweises zur Nutzung von Cookies (EU-Cookie-Richtlinie)
-Version:      0.0.1
+Version:      19042018
 Author:       Nils Harder
 Author URI:   https://www.inventivo.de
 Tags: cookie notice, cookie hinweis, eu cookie richtlinie, cookie popup, inventivo
 Requires at least: 3.0
 Tested up to: 4.9.5
-Stable tag: 0.0.1
+Stable tag: 0.0.2
 License:      GPL2
 License URI:  https://www.gnu.org/licenses/gpl-2.0.html
 
