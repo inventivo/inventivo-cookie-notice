@@ -1,5 +1,5 @@
 <?php /*
-Contributors: Nils Harder (inventivo.de)
+Contributors: inventivogermany
 Plugin Name:  Cookie Notice | inventivo
 Plugin URI:   https://www.inventivo.de/wordpress-agentur/wordpress-plugins
 Description:  Anzeige eines Hinweises zur Nutzung von Cookies (EU-Cookie-Richtlinie)

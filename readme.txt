@@ -1,5 +1,5 @@
 === Cookie Notice | inventivo ===
-Contributors: Nils Harder (inventivo.de)
+Contributors: inventivogermany
 Plugin Name:  Cookie Notice | inventivo
 Plugin URI:   https://www.inventivo.de/wordpress-agentur/wordpress-plugins
 Description:  Anzeige eines Hinweises zur Nutzung von Cookies (EU-Cookie-Richtlinie)
@@ -43,22 +43,5 @@ Use WordPress' Add New Plugin feature, searching "Cookie Notice | inventivo", or
 == Screenshots ==
 
 
-
-== Upgrade Notice ==
-
-
-
 == Changelog ==
-
-
-
-== Template tags ==
-
-
-
-== For plugin developers ==
-
-
-== Contribute ==
-
 
