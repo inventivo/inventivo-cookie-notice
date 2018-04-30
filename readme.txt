@@ -47,4 +47,7 @@ Use WordPress' Add New Plugin feature, searching "Cookie Notice | inventivo", or
 
 
 == Changelog ==
+0.0.8 Small fix to alignment feature
+
 0.0.7 Added Alignment option to use popup on left side, full width or right side
+

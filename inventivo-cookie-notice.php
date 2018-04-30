@@ -39,7 +39,6 @@ define('INVENTIVO_COOKIE_NOTICE_CURRENT_VERSION', '1.0.0' );
 
 add_action( 'wp_enqueue_scripts', array(InvCookieSettingsPage,'inv_cookie_notice_styles' ));
 
-
 class InvCookieSettingsPage
 {
 	/**
