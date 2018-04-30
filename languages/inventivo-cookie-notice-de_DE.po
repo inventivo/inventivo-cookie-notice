@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Cookie Notice | inventivo\n"
-"POT-Creation-Date: 2018-04-20 15:34+0200\n"
-"PO-Revision-Date: 2018-04-20 15:35+0200\n"
+"POT-Creation-Date: 2018-04-30 15:28+0200\n"
+"PO-Revision-Date: 2018-04-30 15:28+0200\n"
 "Last-Translator: Nils Harder <hallo@inventivo.de>\n"
 "Language-Team: Nils Harder, inventivo.de\n"
 "Language: de_DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.0.6\n"
+"X-Generator: Poedit 2.0.7\n"
 "X-Poedit-Basepath: ..\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-Flags-xgettext: --add-comments=translators:\n"
@@ -22,117 +22,121 @@ msgstr ""
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 
 #. Plugin Name of the plugin/theme
-#: inventivo-cookie-notice.php:109 inventivo-cookie-notice.php:159
-#: inventivo-cookie-notice.php:175
+#: inventivo-cookie-notice.php:79 inventivo-cookie-notice.php:149
+#: inventivo-cookie-notice.php:165
 msgid "Cookie Notice | inventivo"
 msgstr "Cookie Hinweis | inventivo"
 
-#: inventivo-cookie-notice.php:201
+#: inventivo-cookie-notice.php:191
 msgid "Setup"
 msgstr "Konfiguration"
 
-#: inventivo-cookie-notice.php:216
+#: inventivo-cookie-notice.php:206
 msgid "Link to Privacy Notice"
 msgstr "Link zur Datenschutzerklärung"
 
-#: inventivo-cookie-notice.php:223
+#: inventivo-cookie-notice.php:213
 msgid "Privacy Link Text"
 msgstr "Datenschutz Linktext"
 
-#: inventivo-cookie-notice.php:231
+#: inventivo-cookie-notice.php:221
 msgid "Cookie Notice Text"
 msgstr "Cookie Hinweis Text"
 
-#: inventivo-cookie-notice.php:239
+#: inventivo-cookie-notice.php:229
 msgid "Cookie Notice Text Color"
 msgstr "Cookie Hinweis Textfarbe"
 
-#: inventivo-cookie-notice.php:247
+#: inventivo-cookie-notice.php:237
 msgid "Button Text"
 msgstr "Button Text"
 
-#: inventivo-cookie-notice.php:255
+#: inventivo-cookie-notice.php:245
 msgid "Button Text Color"
 msgstr "Button Textfarbe"
 
-#: inventivo-cookie-notice.php:263
+#: inventivo-cookie-notice.php:253
 msgid "Button Color"
 msgstr "Button Farbe"
 
-#: inventivo-cookie-notice.php:271
+#: inventivo-cookie-notice.php:261
 msgid "Background Color"
 msgstr "Hintergrundfarbe"
 
-#: inventivo-cookie-notice.php:314
+#: inventivo-cookie-notice.php:269 inventivo-cookie-notice.php:397
+msgid "Alignment"
+msgstr "Ausrichtung"
+
+#: inventivo-cookie-notice.php:315
 msgid "Please adapt texts and colors to your needs:"
 msgstr "Bitte passen Sie texte und Farben an Ihre Bedürfnisse an:"
 
-#: inventivo-cookie-notice.php:321
+#: inventivo-cookie-notice.php:322
 msgid "Example: my-website.de"
 msgstr "Beispiel: meine-website.de"
 
-#: inventivo-cookie-notice.php:322
+#: inventivo-cookie-notice.php:323
 msgid "my-website.de"
 msgstr "meine-website.de"
 
-#: inventivo-cookie-notice.php:328
+#: inventivo-cookie-notice.php:329
 msgid "Example: /privacy"
 msgstr "Beispiel: /datenschutzerklaerung"
 
-#: inventivo-cookie-notice.php:329
+#: inventivo-cookie-notice.php:330
 msgid "/privacy"
 msgstr "/datenschutzerklaerung"
 
-#: inventivo-cookie-notice.php:335
+#: inventivo-cookie-notice.php:336
 msgid "Example: More Info"
 msgstr "Beispiel: Weitere Infos"
 
-#: inventivo-cookie-notice.php:336
+#: inventivo-cookie-notice.php:337
 msgid "More Info"
 msgstr "Weitere Infos"
 
-#: inventivo-cookie-notice.php:342
+#: inventivo-cookie-notice.php:343
 msgid "Example: uses cookies to enhance your user experience."
 msgstr ""
 "Beispiel: nutzt Cookies, um Ihnen eine bestmögliche Funktionalität zu bieten."
 
-#: inventivo-cookie-notice.php:343
+#: inventivo-cookie-notice.php:344
 msgid "uses cookies to enhance your user experience."
 msgstr "nutzt Cookies, um Ihnen eine bestmögliche Funktionalität zu bieten."
 
-#: inventivo-cookie-notice.php:349
+#: inventivo-cookie-notice.php:350
 msgid "Example: #555555"
 msgstr "Beispiel: #555555"
 
-#: inventivo-cookie-notice.php:350
+#: inventivo-cookie-notice.php:351
 msgid "#555555"
 msgstr "#555555"
 
-#: inventivo-cookie-notice.php:356
+#: inventivo-cookie-notice.php:357
 msgid "Example: Accept."
 msgstr "Beispiel: Akzeptieren"
 
-#: inventivo-cookie-notice.php:357
+#: inventivo-cookie-notice.php:358
 msgid "Accept"
 msgstr "Akzeptieren"
 
-#: inventivo-cookie-notice.php:364 inventivo-cookie-notice.php:365
+#: inventivo-cookie-notice.php:365 inventivo-cookie-notice.php:366
 msgid "Example: #FFFFFF"
 msgstr "Beispiel: #FFFFFF"
 
-#: inventivo-cookie-notice.php:372
+#: inventivo-cookie-notice.php:373
 msgid "Example: #646464"
 msgstr "Beispiel: #646464"
 
-#: inventivo-cookie-notice.php:373
+#: inventivo-cookie-notice.php:374
 msgid "#646464"
 msgstr "#646464"
 
-#: inventivo-cookie-notice.php:380
+#: inventivo-cookie-notice.php:381
 msgid "Example: #EFEFEF"
 msgstr "Beispiel: #EFEFEF"
 
-#: inventivo-cookie-notice.php:381
+#: inventivo-cookie-notice.php:382
 msgid "#EFEFEF"
 msgstr "#EFEFEF"
 

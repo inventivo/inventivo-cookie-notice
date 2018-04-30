@@ -9,7 +9,7 @@ Author URI:   https://www.inventivo.de
 Tags: cookie notice, cookie hinweis, eu cookie richtlinie, cookie popup, inventivo
 Requires at least: 3.0
 Tested up to: 4.9.5
-Stable tag: 0.0.6
+Stable tag: 0.0.7
 Text Domain: inventivo-cookie-notice
 Domain Path: /languages
 License:      GPL2
@@ -37,7 +37,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 // Version of the plugin
 define('INVENTIVO_COOKIE_NOTICE_CURRENT_VERSION', '1.0.0' );
 
-add_action( 'wp_enqueue_scripts', array('InvCookieSettingsPage','inv_cookie_notice_styles' ));
+add_action( 'wp_enqueue_scripts', array(InvCookieSettingsPage,'inv_cookie_notice_styles' ));
 
 
 class InvCookieSettingsPage
@@ -56,6 +56,7 @@ class InvCookieSettingsPage
 		//add_action('init',array($this,'my_i18n_debug'));
 	    add_action( 'admin_menu', array( $this, 'add_plugin_page' ) );
 		add_action( 'admin_init', array( $this, 'page_init' ) );
+
 	}
 
 
@@ -83,9 +84,28 @@ class InvCookieSettingsPage
 
 	// Load Frontend Scripts + Styles
 	public function inv_cookie_notice_styles() {
-		wp_register_style( 'cookie-notice-front-styles', plugins_url('/public/css/inv-cookie-notice.css', __FILE__) );
 
+		$options = get_option( 'my_option_name' );
+
+	    switch($options['alignment']) {
+		    case 'left':
+			    $cssFile = 'inv-cookie-notice-left.css';
+			    break;
+		    case 'fullwidth':
+			    $cssFile = 'inv-cookie-notice-fullwidth.css';
+			    break;
+		    case 'right':
+			    $cssFile = 'inv-cookie-notice-right.css';
+			    break;
+        }
+
+		//$cssFile = 'inv-cookie-notice-left.css';
+
+		wp_register_style( 'cookie-notice-front-styles', plugins_url('/public/css/inv-cookie-notice.css', __FILE__) );
 		wp_enqueue_style( 'cookie-notice-front-styles' );
+
+		wp_register_style( 'cookie-notice-front-styles-alignment', plugins_url('/public/css/'.$cssFile, __FILE__) );
+		wp_enqueue_style( 'cookie-notice-front-styles-alignment' );
 
 
 		wp_register_script( 'js-cookie', plugins_url('/public/js/js.cookie.js', __FILE__), array('jquery') );
@@ -96,7 +116,7 @@ class InvCookieSettingsPage
 		wp_register_script( 'cookienotice', plugins_url('/public/js/inv-cookie-notice.js', __FILE__), array('jquery') );
 		// Localize the script with new data
 
-		$options = get_option( 'my_option_name' );
+
 		$invoptions = array(
 			//'domain' => __( 'inventivo.de', 'plugin-domain' ),
 			'domain' => esc_attr($options['domain']),
@@ -107,7 +127,8 @@ class InvCookieSettingsPage
 			'buttontext' => esc_attr($options['buttontext']),
 			'buttontextcolor' => esc_attr($options['buttontextcolor']),
 			'buttoncolor' => esc_attr($options['buttoncolor']),
-			'backgroundcolor' => esc_attr($options['backgroundcolor'])
+			'backgroundcolor' => esc_attr($options['backgroundcolor']),
+			'alignment' => esc_attr($options['alignment']),
 		);
 		wp_localize_script( 'cookienotice', 'invoptions', $invoptions );
 
@@ -242,6 +263,14 @@ class InvCookieSettingsPage
 			'my-setting-admin',
 			'setting_section_id'
 		);
+
+		add_settings_field(
+			'alignment',
+			esc_html__( 'Alignment', 'inventivo-cookie-notice' ),
+			array( $this, 'alignment_callback' ),
+			'my-setting-admin',
+			'setting_section_id'
+		);
 	}
 
 	public function sanitize( $input )
@@ -273,6 +302,9 @@ class InvCookieSettingsPage
 
 		if( isset( $input['backgroundcolor'] ) )
 			$new_input['backgroundcolor'] = sanitize_text_field( $input['backgroundcolor'] );
+
+		if( isset( $input['alignment'] ) )
+			$new_input['alignment'] = sanitize_text_field( $input['alignment'] );
 
 		return $new_input;
 	}
@@ -348,6 +380,21 @@ class InvCookieSettingsPage
 		printf(
 			'<input type="text" id="backgroundcolor" name="my_option_name[backgroundcolor]" value="%s" /> '.__('Example: #EFEFEF','inventivo-cookie-notice'),
 			isset( $this->options['backgroundcolor'] ) ? esc_attr( $this->options['backgroundcolor']) : __('#EFEFEF','inventivo-cookie-notice')
+		);
+	}
+
+	public function alignment_callback()
+	{
+		if($this->options['alignment'] == 'left') { $selected1 = 'selected'; }
+		if($this->options['alignment'] == 'fullwidth') { $selected2 = 'selected'; }
+		if($this->options['alignment'] == 'right') { $selected3 = 'selected'; }
+	    printf(
+		        '<select id="alignment" name="my_option_name[alignment]">
+                    <option value="left" '.$selected1.'>Left</option>
+                    <option value="fullwidth" '.$selected2.'>Full width</option>
+                    <option value="right" '.$selected3.'>Right</option>
+		        </select>',
+			    isset( $this->options['alignment'] ) ? esc_attr( $this->options['alignment']) : __('Alignment','inventivo-cookie-notice')
 		);
 	}
 }
