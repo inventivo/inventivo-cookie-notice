@@ -3,13 +3,13 @@ Contributors: inventivogermany
 Plugin Name:  Cookie Notice | inventivo
 Plugin URI:   https://www.inventivo.de/wordpress-agentur/wordpress-plugins
 Description:  Display the EU Cookie Notice in a popup (EU Cookie Guideline)
-Version:      0.0.8
+Version:      0.0.9
 Author:       Nils Harder
 Author URI:   https://www.inventivo.de
 Tags: cookie notice, cookie hinweis, eu cookie richtlinie, cookie popup, inventivo
 Requires at least: 3.0
 Tested up to: 4.9.5
-Stable tag: 0.0.8
+Stable tag: 0.0.9
 Text Domain: inventivo-cookie-notice
 Domain Path: /languages
 License:      GPL2
@@ -47,6 +47,8 @@ Use WordPress' Add New Plugin feature, searching "Cookie Notice | inventivo", or
 
 
 == Changelog ==
+0.0.9 Fixed string translation
+
 0.0.8 Small fix to alignment feature
 
 0.0.7 Added Alignment option to use popup on left side, full width or right side
