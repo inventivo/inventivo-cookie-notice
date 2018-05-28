@@ -20,7 +20,8 @@ Display the EU Cookie Notice in a popup (EU Cookie Guideline)
 
 == Description ==
 
-This plugin displays a cookie notice at the bottom right corner of your WordPress website.
+This plugin displays a cookie notice at the bottom of your WordPress website.
+You can choose between right, centered full width oder left placement of the popup and adopt colors and texts.
 The cookie notice will be only displayed once until cookies are cleared.
 You can adapt colors and text to your needs via the plugin configuration.
 
