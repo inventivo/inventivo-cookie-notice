@@ -9,7 +9,7 @@ Author URI:   https://www.inventivo.de
 Tags: cookie notice, cookie hinweis, eu cookie richtlinie, cookie popup, inventivo
 Requires at least: 3.0
 Tested up to: 4.9.5
-Stable tag: 0.1.4
+Stable tag: 0.1.6
 Text Domain: inventivo-cookie-notice
 Domain Path: /languages
 License:      GPL2
@@ -131,6 +131,7 @@ class InvCookieSettingsPage
 			'buttoncolor' => esc_attr($options['buttoncolor']),
 			'backgroundcolor' => esc_attr($options['backgroundcolor']),
 			'alignment' => esc_attr($options['alignment']),
+			'cookieduration' => esc_attr($options['cookieduration']),
 		);
 		wp_localize_script( 'cookienotice', 'invoptions', $invoptions );
 
@@ -273,6 +274,13 @@ class InvCookieSettingsPage
 			'my-setting-admin',
 			'setting_section_id'
 		);
+		add_settings_field(
+			'cookieduration',
+			esc_html__( 'Cookie duration in days', 'inventivo-cookie-notice' ),
+			array( $this, 'cookieduration_callback' ),
+			'my-setting-admin',
+			'setting_section_id'
+		);
 	}
 
 	public function sanitize( $input )
@@ -307,6 +315,9 @@ class InvCookieSettingsPage
 
 		if( isset( $input['alignment'] ) )
 			$new_input['alignment'] = sanitize_text_field( $input['alignment'] );
+
+		if( isset( $input['cookieduration'] ) )
+			$new_input['cookieduration'] = sanitize_text_field( $input['cookieduration'] );
 
 		return $new_input;
 	}
@@ -397,6 +408,14 @@ class InvCookieSettingsPage
                     <option value="right" '.$selected3.'>Right</option>
 		        </select>',
 			    isset( $this->options['alignment'] ) ? esc_attr( $this->options['alignment']) : __('Alignment','inventivo-cookie-notice')
+		);
+	}
+
+	public function cookieduration_callback()
+	{
+		printf(
+			'<input type="text" id="cookieduration" name="my_option_name[cookieduration]" value="%s" /> '.__('Example: 365','inventivo-cookie-notice'),
+			isset( $this->options['cookieduration'] ) ? esc_attr( $this->options['cookieduration']) : __('365','inventivo-cookie-notice')
 		);
 	}
 }

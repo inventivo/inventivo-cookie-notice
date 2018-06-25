@@ -7,7 +7,7 @@ jQuery(document).ready(function($) {
             '<div class="cookie-pop" style="color: '+invoptions.cookietextcolor+'; background-color: '+invoptions.backgroundcolor+'"><p>'+invoptions.domain+ ' '+invoptions.cookietext+' <span class="button" id="accept-cookie" style="background-color: '+invoptions.buttoncolor+'; color: '+invoptions.buttontextcolor+'">'+invoptions.buttontext+'</span> <a href="'+invoptions.privacylink+'" class="privacy-link">'+invoptions.privacylinktext+'</a></p></div>'
         );
         $('#accept-cookie').click(function () {
-            Cookies.set('cookie-pop', '1', { expires: 365 });
+            Cookies.set('cookie-pop', '1', { expires: invoptions.cookieduration });
             $('.cookie-pop').remove();
         });
         //Cookies.set('cookie-pop', '1', { expires: 365 });

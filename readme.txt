@@ -9,7 +9,7 @@ Author URI:   https://www.inventivo.de
 Tags: cookie notice, cookie hinweis, eu cookie richtlinie, cookie popup, inventivo
 Requires at least: 3.0
 Tested up to: 4.9.5
-Stable tag: 0.1.4
+Stable tag: 0.1.6
 Text Domain: inventivo-cookie-notice
 Domain Path: /languages
 License:      GPL2
@@ -49,6 +49,10 @@ Use WordPress' Add New Plugin feature, searching "Cookie Notice | inventivo", or
 
 
 == Changelog ==
+0.1.6 Added configuration for cookie duration in days
+
+0.1.5 Modified CSS
+
 0.1.4 Added advanced click logic
 
 0.1.1 Added Plugin Icon and Banner
