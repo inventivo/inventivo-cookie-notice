@@ -9,7 +9,7 @@ Author URI:   https://www.inventivo.de
 Tags: cookie notice, cookie hinweis, eu cookie richtlinie, cookie popup, inventivo
 Requires at least: 3.0
 Tested up to: 4.9.5
-Stable tag: 0.1.3
+Stable tag: 0.1.4
 Text Domain: inventivo-cookie-notice
 Domain Path: /languages
 License:      GPL2
@@ -22,8 +22,9 @@ Display the EU Cookie Notice in a popup (EU Cookie Guideline)
 
 This plugin displays a cookie notice at the bottom of your WordPress website.
 You can choose between right, centered full width oder left placement of the popup and adopt colors and texts.
-The cookie notice will be only displayed once until cookies are cleared.
-You can adapt colors and text to your needs via the plugin configuration.
+When the visitor clicks the accept button, a cookie is set for a certain amount of days (configurable).
+The cookie notice will show up again after the amount of days configured or once cookies are cleared.
+You can adapt colors and texts to your needs via the plugin configuration.
 
 
 How it works:
@@ -48,6 +49,8 @@ Use WordPress' Add New Plugin feature, searching "Cookie Notice | inventivo", or
 
 
 == Changelog ==
+0.1.4 Added advanced click logic
+
 0.1.1 Added Plugin Icon and Banner
 
 0.1.0 Added Plugin Icon and Banner

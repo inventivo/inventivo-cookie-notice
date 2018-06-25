@@ -7,11 +7,16 @@
   font-size: 14px; line-height: 16px;
   vertical-align: top;
   padding: 15px;
-  a { font-size: 14px; line-height: 16px; text-decoration: none; color: #555 !important; border-bottom: 1px dotted #FFF; font-weight: 500; }
-  a:hover { color: #555 !important; }
+  p {
+    padding: 0 10px; margin: 0px auto;
+    a { font-size: 14px; line-height: 16px; text-decoration: none; color: #555 !important; border-bottom: 1px dotted #FFF; font-weight: 500; }
+    a:hover { color: #555 !important; }
+  }
+
 }
 
-.cookie-pop button {
+.cookie-pop .button {
+  display: inline-block; zoom: 1; *display: inline;
   font-size: 14px; line-height: 16px;
   margin: 10px 0 0 0;
   padding: 5px;

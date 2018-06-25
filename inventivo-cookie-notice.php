@@ -9,7 +9,7 @@ Author URI:   https://www.inventivo.de
 Tags: cookie notice, cookie hinweis, eu cookie richtlinie, cookie popup, inventivo
 Requires at least: 3.0
 Tested up to: 4.9.5
-Stable tag: 0.1.3
+Stable tag: 0.1.4
 Text Domain: inventivo-cookie-notice
 Domain Path: /languages
 License:      GPL2
@@ -335,8 +335,8 @@ class InvCookieSettingsPage
 	public function privacylinktext_callback()
 	{
 		printf(
-			'<input type="text" id="privacylinktext" name="my_option_name[privacylinktext]" value="%s" /> '.__( 'Example: More Info', 'inventivo-cookie-notice' ),
-			isset( $this->options['privacylinktext'] ) ? esc_attr( $this->options['privacylinktext']) : __( 'More Info', 'inventivo-cookie-notice' )
+			'<input type="text" id="privacylinktext" name="my_option_name[privacylinktext]" value="%s" /> '.__( 'Example: Privacy policy', 'inventivo-cookie-notice' ),
+			isset( $this->options['privacylinktext'] ) ? esc_attr( $this->options['privacylinktext']) : __( 'Privacy policy', 'inventivo-cookie-notice' )
 		);
 	}
 	public function cookietext_callback()
