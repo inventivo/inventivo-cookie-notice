@@ -20,6 +20,7 @@
     background: #A6CE38;
     color: #FFF; border: 0px solid #FFF;
   }
+  .button:hover { cursor: pointer; opacity: .8; -moz-opacity: .8; -webkit-opacity: .8;}
   .privacy-link {
     font-size: 13px; line-height: 15px;
     text-decoration: underline;
