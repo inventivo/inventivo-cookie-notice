@@ -9,9 +9,12 @@
   -moz-box-shadow: -16px 2px 31px -15px rgba(0,0,0,0.3);
   box-shadow: -16px 2px 31px -15px rgba(0,0,0,0.3);
   a { vertical-align: top; margin-top: 5px; }
-}
-
-.cookie-pop .button {
-  text-align: center;
-  display: block; width: 100%;
+  .button {
+    text-align: center;
+    display: block; width: 100%;
+  }
+  .privacy-link {
+    display: block;
+    margin: 5px 0 0 0;
+  }
 }

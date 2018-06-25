@@ -4,10 +4,13 @@
   width: 100%;
   text-align: center;
   padding: 5px 0;
+  .button {
+    text-align: center;
+    margin: 0 0 0 10px;
+    display: inline-block; zoom: 1; *display: inline;
+  }
+  .privacy-link {
+    margin: 0 0 0 10px;
+  }
 }
 
-.cookie-pop .button {
-  text-align: center;
-  margin: 0 0 0 10px;
-  display: inline-block; zoom: 1; *display: inline;
-}
