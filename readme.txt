@@ -1,31 +1,41 @@
-=== Cookie Notice | inventivo ===
+=== Cookie Notice GDPR | inventivo ===
 Contributors: inventivogermany
 Plugin Name:  Cookie Notice | inventivo
 Plugin URI:   https://www.inventivo.de/wordpress-agentur/wordpress-plugins
 Description:  Display the EU Cookie Notice in a popup (EU Cookie Guideline)
-Version:      0.1.9
+Version:      0.2.0
 Author:       Nils Harder
 Author URI:   https://www.inventivo.de
 Tags: cookie notice, cookie hinweis, eu cookie richtlinie, cookie popup, inventivo
 Requires at least: 3.0
 Tested up to: 4.9.5
-Stable tag: 0.1.9
+Stable tag: 0.2.0
 Text Domain: inventivo-cookie-notice
 Domain Path: /languages
 License:      GPL2
 License URI:  https://www.gnu.org/licenses/gpl-2.0.html
 
 
-Display the EU Cookie Notice in a popup (EU Cookie Guideline)
+Display the EU Cookie Notice in a popup (GDPR - EU Cookie Guideline)
 
 == Description ==
 
-This plugin displays a cookie notice at the bottom of your WordPress website.
-You can choose between right, centered full width oder left placement of the popup and adopt colors and texts.
-When the visitor clicks the accept button, a cookie is set for a certain amount of days (configurable).
-The cookie notice will show up again after the amount of days configured or once cookies are cleared.
-You can adapt colors and texts to your needs via the plugin configuration.
+NOTE: INSTALLING THIS PLUGIN ALONE DOES NOT MAKE YOUR SITE GDPR COMPLIANT. PLEASE CONSULT A LAWER IF YOU ARE NOT SURE WHAT TO DO.
 
+GDPR Cookie Notice - WordPress Pugin
+
+This plugin displays a cookie notice (GDPR) at the bottom of your WordPress website. You can choose between right, centered full width oder left placement of the popup and adopt colors and texts.
+
+When the visitor clicks the accept button, a cookie is set for a certain amount of days (configurable). The cookie notice will show up again after the amount of days configured or once cookies are cleared.
+
+Visit the website of <a href="https://www.inventivo.de">inventivo Webdesign Münster</a> in order to see the plugin in action.
+
+Small and simple:
+- Responsive - fits to all screens
+- Easy configuration
+- Lighweight code
+
+Get your Cookie notice GDPR Plugin now!
 
 How it works:
 
@@ -49,6 +59,8 @@ Use WordPress' Add New Plugin feature, searching "Cookie Notice | inventivo", or
 
 
 == Changelog ==
+0.2.0 Added screenshots
+
 0.1.9 readme.txt update
 
 0.1.8 CSS modification

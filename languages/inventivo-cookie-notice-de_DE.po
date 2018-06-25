@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Cookie Notice | inventivo\n"
 "POT-Creation-Date: 2018-06-25 17:57+0200\n"
-"PO-Revision-Date: 2018-06-25 18:23+0200\n"
+"PO-Revision-Date: 2018-06-25 18:28+0200\n"
 "Last-Translator: Nils Harder <hallo@inventivo.de>\n"
 "Language-Team: Nils Harder, inventivo.de\n"
 "Language: de_DE\n"
@@ -150,7 +150,7 @@ msgstr "#EFEFEF"
 
 #: inventivo-cookie-notice.php:417
 msgid "Example: 365"
-msgstr "Beispiel: #555555"
+msgstr "Beispiel: 365"
 
 #: inventivo-cookie-notice.php:418
 msgid "365"
