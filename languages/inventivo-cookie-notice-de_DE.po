@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Cookie Notice | inventivo\n"
-"POT-Creation-Date: 2018-06-25 17:57+0200\n"
-"PO-Revision-Date: 2018-06-25 18:28+0200\n"
+"POT-Creation-Date: 2018-06-25 18:52+0200\n"
+"PO-Revision-Date: 2018-06-25 18:55+0200\n"
 "Last-Translator: Nils Harder <hallo@inventivo.de>\n"
 "Language-Team: Nils Harder, inventivo.de\n"
 "Language: de_DE\n"
@@ -24,8 +24,8 @@ msgstr ""
 #. Plugin Name of the plugin/theme
 #: inventivo-cookie-notice.php:78 inventivo-cookie-notice.php:152
 #: inventivo-cookie-notice.php:168
-msgid "Cookie Notice | inventivo"
-msgstr "Cookie Hinweis | inventivo"
+msgid "Cookie Notice GDPR | inventivo"
+msgstr "Cookie-Hinweis DSGVO | inventivo"
 
 #: inventivo-cookie-notice.php:194
 msgid "Setup"
@@ -41,11 +41,11 @@ msgstr "Datenschutz Linktext"
 
 #: inventivo-cookie-notice.php:224
 msgid "Cookie Notice Text"
-msgstr "Cookie Hinweis Text"
+msgstr "Cookie-Hinweis Text"
 
 #: inventivo-cookie-notice.php:232
 msgid "Cookie Notice Text Color"
-msgstr "Cookie Hinweis Textfarbe"
+msgstr "Cookie-Hinweis Textfarbe"
 
 #: inventivo-cookie-notice.php:240
 msgid "Button Text"
@@ -69,11 +69,11 @@ msgstr "Ausrichtung"
 
 #: inventivo-cookie-notice.php:279
 msgid "Cookie duration in days"
-msgstr "Cookie Dauer in Tagen"
+msgstr "Cookie-Dauer in Tagen"
 
 #: inventivo-cookie-notice.php:328
 msgid "Please adapt texts and colors to your needs:"
-msgstr "Bitte passen Sie texte und Farben an Ihre Bedürfnisse an:"
+msgstr "Bitte passen Sie Texte und Farben an Ihre Bedürfnisse an:"
 
 #: inventivo-cookie-notice.php:335
 msgid "Example: my-website.de"
@@ -81,7 +81,7 @@ msgstr "Beispiel: meine-website.de"
 
 #: inventivo-cookie-notice.php:336
 msgid "my-website.de"
-msgstr "meine-website.de"
+msgstr "Auf unserer Website "
 
 #: inventivo-cookie-notice.php:342
 msgid "Example: /privacy"
@@ -102,11 +102,21 @@ msgstr "Datenschutzerklärung"
 #: inventivo-cookie-notice.php:356
 msgid "Example: uses cookies to enhance your user experience."
 msgstr ""
-"Beispiel: nutzt Cookies, um Ihnen eine bestmögliche Funktionalität zu bieten."
+"Beispiel: setzen wir technische Cookies ein. Diese sind für die "
+"Funktionalität der Seiten notwendig. Sie können unsere Seite auch ohne das "
+"Setzen von Cookies besuchen. Bitte verwenden Sie die Browsereinstellungen, "
+"um Cookies zu löschen und das Lesen sowie das Speichern von Cookies zu "
+"blockieren bzw. nutzen Sie die Möglichkeit zum anonymen Surfen Ihres "
+"Browsers."
 
 #: inventivo-cookie-notice.php:357
 msgid "uses cookies to enhance your user experience."
-msgstr "nutzt Cookies, um Ihnen eine bestmögliche Funktionalität zu bieten."
+msgstr ""
+"setzen wir technische Cookies ein. Diese sind für die Funktionalität der "
+"Seiten notwendig. Sie können unsere Seite auch ohne das Setzen von Cookies "
+"besuchen. Bitte verwenden Sie die Browsereinstellungen, um Cookies zu "
+"löschen und das Lesen sowie das Speichern von Cookies zu blockieren bzw. "
+"nutzen Sie die Möglichkeit zum anonymen Surfen Ihres Browsers."
 
 #: inventivo-cookie-notice.php:363
 msgid "Example: #555555"
@@ -118,7 +128,7 @@ msgstr "#555555"
 
 #: inventivo-cookie-notice.php:370
 msgid "Example: Accept."
-msgstr "Beispiel: Akzeptieren"
+msgstr "Beispiel: Akzeptieren."
 
 #: inventivo-cookie-notice.php:371
 msgid "Accept"
@@ -162,7 +172,7 @@ msgstr "https://www.inventivo.de/wordpress-agentur/wordpress-plugins"
 
 #. Description of the plugin/theme
 msgid "Display the EU Cookie Notice in a popup (EU Cookie Guideline)"
-msgstr "Cookie Hinweis in einem Popup darstellen (Eu-Cookie-Richtlinie)"
+msgstr "Cookie-Hinweis in einem Popup darstellen (Eu-Cookie-Richtlinie)"
 
 #. Author of the plugin/theme
 msgid "Nils Harder"
@@ -171,6 +181,9 @@ msgstr "Nils Harder"
 #. Author URI of the plugin/theme
 msgid "https://www.inventivo.de"
 msgstr "https://www.inventivo.de"
+
+#~ msgid "Cookie Notice | inventivo"
+#~ msgstr "Cookie Hinweis | inventivo"
 
 #~ msgid "Example: More Info"
 #~ msgstr "Beispiel: Weitere Infos"
