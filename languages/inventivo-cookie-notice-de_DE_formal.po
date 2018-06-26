@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Cookie Notice | inventivo\n"
-"POT-Creation-Date: 2018-06-26 07:30+0200\n"
-"PO-Revision-Date: 2018-06-26 07:31+0200\n"
+"POT-Creation-Date: 2018-06-25 18:52+0200\n"
+"PO-Revision-Date: 2018-06-26 07:30+0200\n"
 "Last-Translator: Nils Harder <hallo@inventivo.de>\n"
 "Language-Team: Nils Harder, inventivo.de\n"
 "Language: de_DE\n"
@@ -73,7 +73,7 @@ msgstr "Cookie-Dauer in Tagen"
 
 #: inventivo-cookie-notice.php:328
 msgid "Please adapt texts and colors to your needs:"
-msgstr "Bitte passe Texte und Farben an Deine Bedürfnisse an:"
+msgstr "Bitte passen Sie Texte und Farben an Ihre Bedürfnisse an:"
 
 #: inventivo-cookie-notice.php:335
 msgid "Example: my-website.de"
@@ -103,19 +103,20 @@ msgstr "Datenschutzerklärung"
 msgid "Example: uses cookies to enhance your user experience."
 msgstr ""
 "Beispiel: setzen wir technische Cookies ein. Diese sind für die "
-"Funktionalität der Seiten notwendig. Du kannst unsere Seite auch ohne das "
-"Setzen von Cookies besuchen. Bitte verwende die Browsereinstellungen, um "
-"Cookies zu löschen und das Lesen sowie das Speichern von Cookies zu "
-"blockieren bzw. nutze die Möglichkeit zum anonymen Surfen Deines Browsers."
+"Funktionalität der Seiten notwendig. Sie können unsere Seite auch ohne das "
+"Setzen von Cookies besuchen. Bitte verwenden Sie die Browsereinstellungen, "
+"um Cookies zu löschen und das Lesen sowie das Speichern von Cookies zu "
+"blockieren bzw. nutzen Sie die Möglichkeit zum anonymen Surfen Ihres "
+"Browsers."
 
 #: inventivo-cookie-notice.php:357
 msgid "uses cookies to enhance your user experience."
 msgstr ""
 "setzen wir technische Cookies ein. Diese sind für die Funktionalität der "
-"Seiten notwendig. Du kannst unsere Seite auch ohne das Setzen von Cookies "
-"besuchen. Bitte verwende die Browsereinstellungen, um Cookies zu löschen "
-"und das Lesen sowie das Speichern von Cookies zu blockieren bzw. nutze die "
-"Möglichkeit zum anonymen Surfen Deines Browsers."
+"Seiten notwendig. Sie können unsere Seite auch ohne das Setzen von Cookies "
+"besuchen. Bitte verwenden Sie die Browsereinstellungen, um Cookies zu "
+"löschen und das Lesen sowie das Speichern von Cookies zu blockieren bzw. "
+"nutzen Sie die Möglichkeit zum anonymen Surfen Ihres Browsers."
 
 #: inventivo-cookie-notice.php:363
 msgid "Example: #555555"
