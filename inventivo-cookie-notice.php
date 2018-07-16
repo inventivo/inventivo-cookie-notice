@@ -3,13 +3,13 @@ Contributors: inventivogermany
 Plugin Name:  Cookie Notice GDPR | inventivo
 Plugin URI:   https://www.inventivo.de/wordpress-agentur/wordpress-plugins
 Description:  Display the EU Cookie Notice in a popup (EU Cookie Guideline)
-Version:      0.2.4
+Version:      0.2.3
 Author:       Nils Harder
 Author URI:   https://www.inventivo.de
 Tags: cookie notice, cookie hinweis, eu cookie richtlinie, cookie popup, inventivo, gdpr, dsgvo
 Requires at least: 3.0
 Tested up to: 4.9.5
-Stable tag: 0.2.4
+Stable tag: 0.2.3
 Text Domain: inventivo-cookie-notice
 Domain Path: /languages
 License:      GPL2
@@ -119,7 +119,7 @@ class InvCookieSettingsPage
 		// Localize the script with new data
 
 
-		$invoptions = array(
+		$invcookienoticeoptions = array(
 			//'domain' => __( 'inventivo.de', 'plugin-domain' ),
 			'domain' => esc_attr($options['domain']),
 			'privacylink' => esc_attr($options['privacylink']),
@@ -133,7 +133,7 @@ class InvCookieSettingsPage
 			'alignment' => esc_attr($options['alignment']),
 			'cookieduration' => esc_attr($options['cookieduration']),
 		);
-		wp_localize_script( 'cookienotice', 'invoptions', $invoptions );
+		wp_localize_script( 'cookienotice', 'invcookienoticeoptions', $invcookienoticeoptions );
 
 		// Enqueued script with localized data.
 		wp_enqueue_script( 'cookienotice' );
