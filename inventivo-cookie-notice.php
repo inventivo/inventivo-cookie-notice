@@ -8,7 +8,7 @@ Author:       Nils Harder
 Author URI:   https://www.inventivo.de
 Tags: cookie notice, cookie hinweis, eu cookie richtlinie, cookie popup, inventivo, gdpr, dsgvo
 Requires at least: 3.0
-Tested up to: 4.9.5
+Tested up to: 4.9.7
 Stable tag: 0.2.3
 Text Domain: inventivo-cookie-notice
 Domain Path: /languages
