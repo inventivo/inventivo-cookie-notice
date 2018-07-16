@@ -3,13 +3,13 @@ Contributors: inventivogermany
 Plugin Name:  Cookie Notice GDPR | inventivo
 Plugin URI:   https://www.inventivo.de/wordpress-agentur/wordpress-plugins
 Description:  Display the EU Cookie Notice in a popup (EU Cookie Guideline)
-Version:      0.2.3
+Version:      0.2.4
 Author:       Nils Harder
 Author URI:   https://www.inventivo.de
 Tags: cookie notice, cookie hinweis, eu cookie richtlinie, cookie popup, inventivo, gdpr, dsgvo
 Requires at least: 3.0
 Tested up to: 4.9.5
-Stable tag: 0.2.3
+Stable tag: 0.2.4
 Text Domain: inventivo-cookie-notice
 Domain Path: /languages
 License:      GPL2
@@ -84,7 +84,7 @@ class InvCookieSettingsPage
 	// Load Frontend Scripts + Styles
 	public function inv_cookie_notice_styles() {
 
-		$options = get_option( 'my_option_name' );
+		$options = get_option( 'inventivo_cookienotice_option_name' );
 
 	    switch($options['alignment']) {
 		    case 'left':
@@ -151,7 +151,7 @@ class InvCookieSettingsPage
 			'Settings Admin',
 			esc_html__( 'Cookie Notice GDPR | inventivo', 'inventivo-cookie-notice' ),
 			'manage_options',
-			'my-setting-admin',
+			'inventivo_cookienotice_setting_admin',
 			array( $this, 'create_admin_page' )
 		);
 	}
@@ -162,15 +162,15 @@ class InvCookieSettingsPage
 	public function create_admin_page()
 	{
 		// Set class property
-		$this->options = get_option( 'my_option_name' );
+		$this->options = get_option( 'inventivo_cookienotice_option_name' );
 		?>
 		<div class="wrap">
 			<h1><?php esc_html_e( 'Cookie Notice GDPR | inventivo', 'inventivo-cookie-notice' ); ?></h1>
 			<form method="post" action="options.php">
 				<?php
 				// This prints out all hidden setting fields
-				settings_fields( 'my_option_group' );
-				do_settings_sections( 'my-setting-admin' );
+				settings_fields( 'inventivo_cookienotice_option_group' );
+				do_settings_sections( 'inventivo_cookienotice_setting_admin' );
 				submit_button();
 				?>
 			</form>
@@ -184,8 +184,8 @@ class InvCookieSettingsPage
 	public function page_init()
 	{
 		register_setting(
-			'my_option_group', // Option group
-			'my_option_name', // Option name
+			'inventivo_cookienotice_option_group', // Option group
+			'inventivo_cookienotice_option_name', // Option name
 			array( $this, 'sanitize' ) // Sanitize
 		);
 
@@ -193,14 +193,14 @@ class InvCookieSettingsPage
 			'setting_section_id', // ID
 			esc_html__('Setup', 'inventivo-cookie-notice'), // Title
 			array( $this, 'print_section_info' ), // Callback
-			'my-setting-admin' // Page
+			'inventivo_cookienotice_setting_admin' // Page
 		);
 
 		add_settings_field(
 			'domain', // ID
 			'Domain', // Title
 			array( $this, 'domain_callback' ), // Callback
-			'my-setting-admin', // Page
+			'inventivo_cookienotice_setting_admin', // Page
 			'setting_section_id' // Section
 		);
 
@@ -208,14 +208,14 @@ class InvCookieSettingsPage
 			'privacylink',
 			esc_html__( 'Link to Privacy Notice', 'inventivo-cookie-notice' ),
 			array( $this, 'privacylink_callback' ),
-			'my-setting-admin',
+			'inventivo_cookienotice_setting_admin',
 			'setting_section_id'
 		);
 		add_settings_field(
 			'privacylinktext',
 			esc_html__( 'Privacy Link Text', 'inventivo-cookie-notice' ),
 			array( $this, 'privacylinktext_callback' ),
-			'my-setting-admin',
+			'inventivo_cookienotice_setting_admin',
 			'setting_section_id'
 		);
 
@@ -223,7 +223,7 @@ class InvCookieSettingsPage
 			'cookietext',
 			esc_html__( 'Cookie Notice Text', 'inventivo-cookie-notice' ),
 			array( $this, 'cookietext_callback' ),
-			'my-setting-admin',
+			'inventivo_cookienotice_setting_admin',
 			'setting_section_id'
 		);
 
@@ -231,7 +231,7 @@ class InvCookieSettingsPage
 			'cookietextcolor',
 			esc_html__( 'Cookie Notice Text Color', 'inventivo-cookie-notice' ),
 			array( $this, 'cookietextcolor_callback' ),
-			'my-setting-admin',
+			'inventivo_cookienotice_setting_admin',
 			'setting_section_id'
 		);
 
@@ -239,7 +239,7 @@ class InvCookieSettingsPage
 			'buttontext',
 			esc_html__( 'Button Text', 'inventivo-cookie-notice' ),
 			array( $this, 'buttontext_callback' ),
-			'my-setting-admin',
+			'inventivo_cookienotice_setting_admin',
 			'setting_section_id'
 		);
 
@@ -247,7 +247,7 @@ class InvCookieSettingsPage
 			'buttontextcolor',
 			esc_html__( 'Button Text Color', 'inventivo-cookie-notice' ),
 			array( $this, 'buttontextcolor_callback' ),
-			'my-setting-admin',
+			'inventivo_cookienotice_setting_admin',
 			'setting_section_id'
 		);
 
@@ -255,7 +255,7 @@ class InvCookieSettingsPage
 			'buttoncolor',
 			esc_html__( 'Button Color', 'inventivo-cookie-notice' ),
 			array( $this, 'buttoncolor_callback' ),
-			'my-setting-admin',
+			'inventivo_cookienotice_setting_admin',
 			'setting_section_id'
 		);
 
@@ -263,7 +263,7 @@ class InvCookieSettingsPage
 			'backgroundcolor',
 			esc_html__( 'Background Color', 'inventivo-cookie-notice' ),
 			array( $this, 'backgroundcolor_callback' ),
-			'my-setting-admin',
+			'inventivo_cookienotice_setting_admin',
 			'setting_section_id'
 		);
 
@@ -271,14 +271,14 @@ class InvCookieSettingsPage
 			'alignment',
 			esc_html__( 'Alignment', 'inventivo-cookie-notice' ),
 			array( $this, 'alignment_callback' ),
-			'my-setting-admin',
+			'inventivo_cookienotice_setting_admin',
 			'setting_section_id'
 		);
 		add_settings_field(
 			'cookieduration',
 			esc_html__( 'Cookie duration in days', 'inventivo-cookie-notice' ),
 			array( $this, 'cookieduration_callback' ),
-			'my-setting-admin',
+			'inventivo_cookienotice_setting_admin',
 			'setting_section_id'
 		);
 	}
@@ -332,42 +332,42 @@ class InvCookieSettingsPage
 	public function domain_callback()
 	{
 		printf(
-			'<input type="text" id="domain" name="my_option_name[domain]" value="%s" /> '.__( 'Example: my-website.de', 'inventivo-cookie-notice' ),
+			'<input type="text" id="domain" name="inventivo_cookienotice_option_name[domain]" value="%s" /> '.__( 'Example: my-website.de', 'inventivo-cookie-notice' ),
 			isset( $this->options['domain'] ) ? esc_attr( $this->options['domain']) : __( 'my-website.de', 'inventivo-cookie-notice' )
 		);
 	}
 	public function privacylink_callback()
 	{
 		printf(
-			'<input type="text" id="privacylink" name="my_option_name[privacylink]" value="%s" /> '.__( 'Example: /privacy', 'inventivo-cookie-notice' ),
+			'<input type="text" id="privacylink" name="inventivo_cookienotice_option_name[privacylink]" value="%s" /> '.__( 'Example: /privacy', 'inventivo-cookie-notice' ),
 			isset( $this->options['privacylink'] ) ? esc_attr( $this->options['privacylink']) : __( '/privacy', 'inventivo-cookie-notice' )
 		);
 	}
 	public function privacylinktext_callback()
 	{
 		printf(
-			'<input type="text" id="privacylinktext" name="my_option_name[privacylinktext]" value="%s" /> '.__( 'Example: Privacy policy', 'inventivo-cookie-notice' ),
+			'<input type="text" id="privacylinktext" name="inventivo_cookienotice_option_name[privacylinktext]" value="%s" /> '.__( 'Example: Privacy policy', 'inventivo-cookie-notice' ),
 			isset( $this->options['privacylinktext'] ) ? esc_attr( $this->options['privacylinktext']) : __( 'Privacy policy', 'inventivo-cookie-notice' )
 		);
 	}
 	public function cookietext_callback()
 	{
 		printf(
-			'<input type="text" id="cookietext" name="my_option_name[cookietext]" value="%s" /> '.__( 'Example: uses cookies to enhance your user experience.', 'inventivo-cookie-notice' ),
+			'<input type="text" id="cookietext" name="inventivo_cookienotice_option_name[cookietext]" value="%s" /> '.__( 'Example: uses cookies to enhance your user experience.', 'inventivo-cookie-notice' ),
 			isset( $this->options['cookietext'] ) ? esc_attr( $this->options['cookietext']) : __( 'uses cookies to enhance your user experience.', 'inventivo-cookie-notice' )
 		);
 	}
 	public function cookietextcolor_callback()
 	{
 		printf(
-			'<input type="text" id="cookietextcolor" name="my_option_name[cookietextcolor]" value="%s" /> '.__('Example: #555555','inventivo-cookie-notice'),
+			'<input type="text" id="cookietextcolor" name="inventivo_cookienotice_option_name[cookietextcolor]" value="%s" /> '.__('Example: #555555','inventivo-cookie-notice'),
 			isset( $this->options['cookietextcolor'] ) ? esc_attr( $this->options['cookietextcolor']) : __('#555555','inventivo-cookie-notice')
 		);
 	}
 	public function buttontext_callback()
 	{
 		printf(
-			'<input type="text" id="buttontext" name="my_option_name[buttontext]" value="%s" /> '.__('Example: Accept.','inventivo-cookie-notice'),
+			'<input type="text" id="buttontext" name="inventivo_cookienotice_option_name[buttontext]" value="%s" /> '.__('Example: Accept.','inventivo-cookie-notice'),
 			isset( $this->options['buttontext'] ) ? esc_attr( $this->options['buttontext']) : __('Accept','inventivo-cookie-notice')
 		);
 	}
@@ -375,7 +375,7 @@ class InvCookieSettingsPage
     public function buttontextcolor_callback()
 	{
 		printf(
-			'<input type="text" id="buttontextcolor" name="my_option_name[buttontextcolor]" value="%s" /> '.__('Example: #FFFFFF','inventivo-cookie-notice'),
+			'<input type="text" id="buttontextcolor" name="inventivo_cookienotice_option_name[buttontextcolor]" value="%s" /> '.__('Example: #FFFFFF','inventivo-cookie-notice'),
 			isset( $this->options['buttontextcolor'] ) ? esc_attr( $this->options['buttontextcolor']) : __('#FFFFFF','inventivo-cookie-notice')
 		);
 	}
@@ -383,7 +383,7 @@ class InvCookieSettingsPage
 	public function buttoncolor_callback()
 	{
 		printf(
-			'<input type="text" id="buttoncolor" name="my_option_name[buttoncolor]" value="%s" /> '.__('Example: #646464','inventivo-cookie-notice'),
+			'<input type="text" id="buttoncolor" name="inventivo_cookienotice_option_name[buttoncolor]" value="%s" /> '.__('Example: #646464','inventivo-cookie-notice'),
 			isset( $this->options['buttoncolor'] ) ? esc_attr( $this->options['buttoncolor']) : __('#646464','inventivo-cookie-notice')
 		);
 	}
@@ -391,7 +391,7 @@ class InvCookieSettingsPage
 	public function backgroundcolor_callback()
 	{
 		printf(
-			'<input type="text" id="backgroundcolor" name="my_option_name[backgroundcolor]" value="%s" /> '.__('Example: #EFEFEF','inventivo-cookie-notice'),
+			'<input type="text" id="backgroundcolor" name="inventivo_cookienotice_option_name[backgroundcolor]" value="%s" /> '.__('Example: #EFEFEF','inventivo-cookie-notice'),
 			isset( $this->options['backgroundcolor'] ) ? esc_attr( $this->options['backgroundcolor']) : __('#EFEFEF','inventivo-cookie-notice')
 		);
 	}
@@ -402,7 +402,7 @@ class InvCookieSettingsPage
 		if($this->options['alignment'] == 'fullwidth') { $selected2 = 'selected'; }
 		if($this->options['alignment'] == 'right') { $selected3 = 'selected'; }
 	    printf(
-		        '<select id="alignment" name="my_option_name[alignment]">
+		        '<select id="alignment" name="inventivo_cookienotice_option_name[alignment]">
                     <option value="left" '.$selected1.'>Left</option>
                     <option value="fullwidth" '.$selected2.'>Full width</option>
                     <option value="right" '.$selected3.'>Right</option>
@@ -414,7 +414,7 @@ class InvCookieSettingsPage
 	public function cookieduration_callback()
 	{
 		printf(
-			'<input type="text" id="cookieduration" name="my_option_name[cookieduration]" value="%s" /> '.__('Example: 365','inventivo-cookie-notice'),
+			'<input type="text" id="cookieduration" name="inventivo_cookienotice_option_name[cookieduration]" value="%s" /> '.__('Example: 365','inventivo-cookie-notice'),
 			isset( $this->options['cookieduration'] ) ? esc_attr( $this->options['cookieduration']) : __('365','inventivo-cookie-notice')
 		);
 	}
