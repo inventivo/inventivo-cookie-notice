@@ -96,6 +96,9 @@ class InvCookieSettingsPage
 		    case 'right':
 			    $cssFile = 'inv-cookie-notice-right.css';
 			    break;
+		    case 'fullwidthtop':
+			    $cssFile = 'inv-cookie-notice-fullwidthtop.css';
+			    break;
             default:
 	            $cssFile = 'inv-cookie-notice-right.css';
 	            break;
@@ -401,11 +404,13 @@ class InvCookieSettingsPage
 		if($this->options['alignment'] == 'left') { $selected1 = 'selected'; }
 		if($this->options['alignment'] == 'fullwidth') { $selected2 = 'selected'; }
 		if($this->options['alignment'] == 'right') { $selected3 = 'selected'; }
+		if($this->options['alignment'] == 'fullwidthtop') { $selected4 = 'selected'; }
 	    printf(
 		        '<select id="alignment" name="inventivo_cookienotice_option_name[alignment]">
                     <option value="left" '.$selected1.'>Left</option>
                     <option value="fullwidth" '.$selected2.'>Full width</option>
                     <option value="right" '.$selected3.'>Right</option>
+                    <option value="fullwidthtop" '.$selected4.'>Full width (Top)</option>
 		        </select>',
 			    isset( $this->options['alignment'] ) ? esc_attr( $this->options['alignment']) : __('Alignment','inventivo-cookie-notice')
 		);
