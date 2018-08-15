@@ -28,7 +28,7 @@ This plugin displays a cookie notice (GDPR) at the bottom of your WordPress webs
 
 When the visitor clicks the accept button, a cookie is set for a certain amount of days (configurable). The cookie notice will show up again after the amount of days configured or once cookies are cleared.
 
-Visit the website of <a href="https://www.inventivo.de">inventivo Webdesign Münster</a> in order to see the plugin in action.
+Visit our <a href="https://www.inventivo.de">website</a> in order to see the plugin in action.
 
 Small and simple:
 - Responsive - fits to all screens
