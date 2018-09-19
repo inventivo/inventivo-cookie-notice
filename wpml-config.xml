@@ -1,0 +1,17 @@
+<wpml-config>
+  <admin-texts>
+    <key name="inventivo_cookienotice_option_name">
+      <key name="domain"/>
+      <key name="privacylink"/>
+      <key name="privacylinktext"/>
+      <key name="cookietext"/>
+      <key name="cookietextcolor"/>
+      <key name="buttontext"/>
+      <key name="buttontextcolor"/>
+      <key name="buttoncolor"/>
+      <key name="backgroundcolor"/>
+      <key name="alignment"/>
+      <key name="cookieduration"/>
+    </key>
+  </admin-texts>
+</wpml-config>
