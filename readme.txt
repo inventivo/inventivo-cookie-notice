@@ -59,7 +59,7 @@ Use WordPress' Add New Plugin feature, searching "Cookie Notice | inventivo", or
 
 
 == Changelog ==
-0.2.7 Added wpml-config.xml and switches to github
+0.2.7 Added wpml-config.xml and switched to github
 
 0.2.4 Updated settings page
 
