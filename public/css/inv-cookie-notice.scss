@@ -1,5 +1,5 @@
 .inv-cookie-pop {
-  background-color: #efefef;
+  background: #efefef;
   color: #555;
   position: fixed;
   text-align: left;
@@ -14,9 +14,12 @@
   }
   .button {
     display: inline-block; zoom: 1; *display: inline;
-    font-size: 13px; line-height: 15px;
     margin: 10px 0 0 0;
-    padding: 5px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    font-size: 14px; line-height: 16px;
+    padding: 10px 20px;
     background: #A6CE38;
     color: #FFF; border: 0px solid #FFF;
   }

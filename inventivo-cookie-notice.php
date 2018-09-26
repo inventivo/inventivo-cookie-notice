@@ -3,13 +3,13 @@ Contributors: inventivogermany
 Plugin Name:  Cookie Notice GDPR | inventivo
 Plugin URI:   https://www.inventivo.de/wordpress-agentur/wordpress-plugins
 Description:  Display the EU Cookie Notice in a popup (EU Cookie Guideline)
-Version:      0.2.9
+Version:      0.3.0
 Author:       Nils Harder
 Author URI:   https://www.inventivo.de
 Tags: cookie notice, cookie hinweis, eu cookie richtlinie, cookie popup, inventivo, gdpr, dsgvo
 Requires at least: 3.0
-Tested up to: 4.9.7
-Stable tag: 0.2.9
+Tested up to: 4.9.8
+Stable tag: 0.3.0
 Text Domain: inventivo-cookie-notice
 Domain Path: /languages
 License:      GPL2
@@ -133,6 +133,9 @@ class InvCookieSettingsPage
 			'buttontextcolor' => esc_attr($options['buttontextcolor']),
 			'buttoncolor' => esc_attr($options['buttoncolor']),
 			'backgroundcolor' => esc_attr($options['backgroundcolor']),
+			'backgroundcolor1' => esc_attr($options['backgroundcolor1']),
+			'backgroundcolor2' => esc_attr($options['backgroundcolor2']),
+			'backgroundcolor3' => esc_attr($options['backgroundcolor3']),
 			'alignment' => esc_attr($options['alignment']),
 			'cookieduration' => esc_attr($options['cookieduration']),
 		);
@@ -247,30 +250,6 @@ class InvCookieSettingsPage
 		);
 
 		add_settings_field(
-			'buttontextcolor',
-			esc_html__( 'Button Text Color', 'inventivo-cookie-notice' ),
-			array( $this, 'buttontextcolor_callback' ),
-			'inventivo_cookienotice_setting_admin',
-			'setting_section_id'
-		);
-
-		add_settings_field(
-			'buttoncolor',
-			esc_html__( 'Button Color', 'inventivo-cookie-notice' ),
-			array( $this, 'buttoncolor_callback' ),
-			'inventivo_cookienotice_setting_admin',
-			'setting_section_id'
-		);
-
-		add_settings_field(
-			'backgroundcolor',
-			esc_html__( 'Background Color', 'inventivo-cookie-notice' ),
-			array( $this, 'backgroundcolor_callback' ),
-			'inventivo_cookienotice_setting_admin',
-			'setting_section_id'
-		);
-
-		add_settings_field(
 			'alignment',
 			esc_html__( 'Alignment', 'inventivo-cookie-notice' ),
 			array( $this, 'alignment_callback' ),
@@ -284,6 +263,56 @@ class InvCookieSettingsPage
 			'inventivo_cookienotice_setting_admin',
 			'setting_section_id'
 		);
+
+		// Colors
+		add_settings_section(
+			'setting_sections_colors', // ID
+			esc_html__('Colors', 'inventivo-cookie-notice'), // Title
+			array( $this, 'print_section_info_colors' ), // Callback
+			'inventivo_cookienotice_setting_admin' // Page
+		);
+
+		add_settings_field(
+			'buttontextcolor',
+			esc_html__( 'Button Text Color', 'inventivo-cookie-notice' ),
+			array( $this, 'buttontextcolor_callback' ),
+			'inventivo_cookienotice_setting_admin',
+			'setting_sections_colors'
+		);
+
+		add_settings_field(
+			'buttoncolor',
+			esc_html__( 'Button Color', 'inventivo-cookie-notice' ),
+			array( $this, 'buttoncolor_callback' ),
+			'inventivo_cookienotice_setting_admin',
+			'setting_sections_colors'
+		);
+
+		add_settings_field(
+			'backgroundcolor',
+			esc_html__( 'Background Color', 'inventivo-cookie-notice' ),
+			array( $this, 'backgroundcolor_callback' ),
+			'inventivo_cookienotice_setting_admin',
+			'setting_sections_colors'
+		);
+
+		add_settings_field(
+			'backgroundcolor2',
+			esc_html__( 'Background Color 2', 'inventivo-cookie-notice' ),
+			array( $this, 'backgroundcolor2_callback' ),
+			'inventivo_cookienotice_setting_admin',
+			'setting_sections_colors'
+		);
+
+		add_settings_field(
+			'backgroundcolor3',
+			esc_html__( 'Background Color 3', 'inventivo-cookie-notice' ),
+			array( $this, 'backgroundcolor3_callback' ),
+			'inventivo_cookienotice_setting_admin',
+			'setting_sections_colors'
+		);
+
+
 	}
 
 	public function sanitize( $input )
@@ -316,6 +345,12 @@ class InvCookieSettingsPage
 		if( isset( $input['backgroundcolor'] ) )
 			$new_input['backgroundcolor'] = sanitize_text_field( $input['backgroundcolor'] );
 
+		if( isset( $input['backgroundcolor2'] ) )
+		$new_input['backgroundcolor2'] = sanitize_text_field( $input['backgroundcolor2'] );
+
+		if( isset( $input['backgroundcolor3'] ) )
+		$new_input['backgroundcolor3'] = sanitize_text_field( $input['backgroundcolor3'] );
+
 		if( isset( $input['alignment'] ) )
 			$new_input['alignment'] = sanitize_text_field( $input['alignment'] );
 
@@ -329,6 +364,11 @@ class InvCookieSettingsPage
 	public function print_section_info()
 	{
 		_e( 'Please adapt texts and colors to your needs:', 'inventivo-cookie-notice' );
+	}
+
+	public function print_section_info_colors()
+	{
+		_e( 'You can set up to three colors for using a gradient styled background. If you want to have a one colored background, just use the same color code for each background color field', 'inventivo-cookie-notice' );
 	}
 
 
@@ -396,6 +436,22 @@ class InvCookieSettingsPage
 		printf(
 			'<input type="text" id="backgroundcolor" name="inventivo_cookienotice_option_name[backgroundcolor]" value="%s" /> '.__('Example: #EFEFEF','inventivo-cookie-notice'),
 			isset( $this->options['backgroundcolor'] ) ? esc_attr( $this->options['backgroundcolor']) : __('#EFEFEF','inventivo-cookie-notice')
+		);
+	}
+
+	public function backgroundcolor2_callback()
+	{
+		printf(
+			'<input type="text" id="backgroundcolor2" name="inventivo_cookienotice_option_name[backgroundcolor2]" value="%s" /> '.__('Example: #EFEFEF','inventivo-cookie-notice'),
+			isset( $this->options['backgroundcolor2'] ) ? esc_attr( $this->options['backgroundcolor2']) : __('#EFEFEF','inventivo-cookie-notice')
+		);
+	}
+
+	public function backgroundcolor3_callback()
+	{
+		printf(
+			'<input type="text" id="backgroundcolor3" name="inventivo_cookienotice_option_name[backgroundcolor3]" value="%s" /> '.__('Example: #EFEFEF','inventivo-cookie-notice'),
+			isset( $this->options['backgroundcolor3'] ) ? esc_attr( $this->options['backgroundcolor3']) : __('#EFEFEF','inventivo-cookie-notice')
 		);
 	}
 
