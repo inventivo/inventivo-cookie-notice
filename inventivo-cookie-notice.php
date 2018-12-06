@@ -501,6 +501,5 @@ class InvCookieSettingsPage
 	}
 }
 
-
 if( is_admin() )
 	$my_settings_page = new InvCookieSettingsPage();

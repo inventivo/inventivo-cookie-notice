@@ -10,6 +10,5 @@ jQuery(document).ready(function($) {
             Cookies.set('inv-cookie-pop', '1', { expires: parseInt(invcookienoticeoptions.cookieduration) });
             $('.inv-cookie-pop').remove();
         });
-        //Cookies.set('cookie-pop', '1', { expires: 365 });
     }
 });
