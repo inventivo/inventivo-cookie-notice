@@ -53,7 +53,7 @@ class InvCookieSettingsPage
 	{
 		add_action('plugins_loaded',array($this,'inventivo_cookie_notice_load_textdomain'));
 		//add_action('init',array($this,'my_i18n_debug'));
-	    add_action( 'admin_menu', array( $this, 'add_plugin_page' ) );
+		add_action( 'admin_menu', array( $this, 'add_plugin_page' ) );
 		add_action( 'admin_init', array( $this, 'page_init' ) );
 
 	}
@@ -86,23 +86,23 @@ class InvCookieSettingsPage
 
 		$options = get_option( 'inventivo_cookienotice_option_name' );
 
-	    switch($options['alignment']) {
-		    case 'left':
-			    $cssFile = 'inv-cookie-notice-left.css';
-			    break;
-		    case 'fullwidth':
-			    $cssFile = 'inv-cookie-notice-fullwidth.css';
-			    break;
-		    case 'right':
-			    $cssFile = 'inv-cookie-notice-right.css';
-			    break;
-		    case 'fullwidthtop':
-			    $cssFile = 'inv-cookie-notice-fullwidthtop.css';
-			    break;
-            default:
-	            $cssFile = 'inv-cookie-notice-right.css';
-	            break;
-        }
+		switch($options['alignment']) {
+			case 'left':
+				$cssFile = 'inv-cookie-notice-left.css';
+				break;
+			case 'fullwidth':
+				$cssFile = 'inv-cookie-notice-fullwidth.css';
+				break;
+			case 'right':
+				$cssFile = 'inv-cookie-notice-right.css';
+				break;
+			case 'fullwidthtop':
+				$cssFile = 'inv-cookie-notice-fullwidthtop.css';
+				break;
+			default:
+				$cssFile = 'inv-cookie-notice-right.css';
+				break;
+		}
 
 		//$cssFile = 'inv-cookie-notice-left.css';
 
@@ -132,6 +132,7 @@ class InvCookieSettingsPage
 			'buttontext' => esc_attr($options['buttontext']),
 			'buttontextcolor' => esc_attr($options['buttontextcolor']),
 			'buttoncolor' => esc_attr($options['buttoncolor']),
+			'buttonradius' => esc_attr($options['buttonradius']),
 			'backgroundcolor' => esc_attr($options['backgroundcolor']),
 			'backgroundcolor1' => esc_attr($options['backgroundcolor1']),
 			'backgroundcolor2' => esc_attr($options['backgroundcolor2']),
@@ -170,17 +171,17 @@ class InvCookieSettingsPage
 		// Set class property
 		$this->options = get_option( 'inventivo_cookienotice_option_name' );
 		?>
-		<div class="wrap">
-			<h1><?php esc_html_e( 'Cookie Notice GDPR | inventivo', 'inventivo-cookie-notice' ); ?></h1>
-			<form method="post" action="options.php">
+        <div class="wrap">
+            <h1><?php esc_html_e( 'Cookie Notice GDPR | inventivo', 'inventivo-cookie-notice' ); ?></h1>
+            <form method="post" action="options.php">
 				<?php
 				// This prints out all hidden setting fields
 				settings_fields( 'inventivo_cookienotice_option_group' );
 				do_settings_sections( 'inventivo_cookienotice_setting_admin' );
 				submit_button();
 				?>
-			</form>
-		</div>
+            </form>
+        </div>
 		<?php
 	}
 
@@ -289,6 +290,14 @@ class InvCookieSettingsPage
 		);
 
 		add_settings_field(
+			'buttonradius',
+			esc_html__( 'Button Border Radius', 'inventivo-cookie-notice' ),
+			array( $this, 'buttonradius_callback' ),
+			'inventivo_cookienotice_setting_admin',
+			'setting_sections_colors'
+		);
+
+		add_settings_field(
 			'backgroundcolor',
 			esc_html__( 'Background Color', 'inventivo-cookie-notice' ),
 			array( $this, 'backgroundcolor_callback' ),
@@ -342,14 +351,17 @@ class InvCookieSettingsPage
 		if( isset( $input['buttoncolor'] ) )
 			$new_input['buttoncolor'] = sanitize_text_field( $input['buttoncolor'] );
 
+		if( isset( $input['buttonradius'] ) )
+			$new_input['buttonradius'] = sanitize_text_field( $input['buttonradius'] );
+
 		if( isset( $input['backgroundcolor'] ) )
 			$new_input['backgroundcolor'] = sanitize_text_field( $input['backgroundcolor'] );
 
 		if( isset( $input['backgroundcolor2'] ) )
-		$new_input['backgroundcolor2'] = sanitize_text_field( $input['backgroundcolor2'] );
+			$new_input['backgroundcolor2'] = sanitize_text_field( $input['backgroundcolor2'] );
 
 		if( isset( $input['backgroundcolor3'] ) )
-		$new_input['backgroundcolor3'] = sanitize_text_field( $input['backgroundcolor3'] );
+			$new_input['backgroundcolor3'] = sanitize_text_field( $input['backgroundcolor3'] );
 
 		if( isset( $input['alignment'] ) )
 			$new_input['alignment'] = sanitize_text_field( $input['alignment'] );
@@ -415,7 +427,7 @@ class InvCookieSettingsPage
 		);
 	}
 
-    public function buttontextcolor_callback()
+	public function buttontextcolor_callback()
 	{
 		printf(
 			'<input type="text" id="buttontextcolor" name="inventivo_cookienotice_option_name[buttontextcolor]" value="%s" /> '.__('Example: #FFFFFF','inventivo-cookie-notice'),
@@ -428,6 +440,14 @@ class InvCookieSettingsPage
 		printf(
 			'<input type="text" id="buttoncolor" name="inventivo_cookienotice_option_name[buttoncolor]" value="%s" /> '.__('Example: #646464','inventivo-cookie-notice'),
 			isset( $this->options['buttoncolor'] ) ? esc_attr( $this->options['buttoncolor']) : __('#646464','inventivo-cookie-notice')
+		);
+	}
+
+	public function buttonradius_callback()
+	{
+		printf(
+			'<input type="text" id="buttonradius" name="inventivo_cookienotice_option_name[buttonradius]" value="%s" /> '.__('Example: 20px','inventivo-cookie-notice'),
+			isset( $this->options['buttonradius'] ) ? esc_attr( $this->options['buttonradius']) : __('20px','inventivo-cookie-notice')
 		);
 	}
 
@@ -461,14 +481,14 @@ class InvCookieSettingsPage
 		if($this->options['alignment'] == 'fullwidth') { $selected2 = 'selected'; }
 		if($this->options['alignment'] == 'right') { $selected3 = 'selected'; }
 		if($this->options['alignment'] == 'fullwidthtop') { $selected4 = 'selected'; }
-	    printf(
-		        '<select id="alignment" name="inventivo_cookienotice_option_name[alignment]">
+		printf(
+			'<select id="alignment" name="inventivo_cookienotice_option_name[alignment]">
                     <option value="left" '.$selected1.'>Left</option>
                     <option value="fullwidth" '.$selected2.'>Full width</option>
                     <option value="right" '.$selected3.'>Right</option>
                     <option value="fullwidthtop" '.$selected4.'>Full width (Top)</option>
 		        </select>',
-			    isset( $this->options['alignment'] ) ? esc_attr( $this->options['alignment']) : __('Alignment','inventivo-cookie-notice')
+			isset( $this->options['alignment'] ) ? esc_attr( $this->options['alignment']) : __('Alignment','inventivo-cookie-notice')
 		);
 	}
 
