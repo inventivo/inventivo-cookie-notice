@@ -3,13 +3,13 @@ Contributors: inventivogermany
 Plugin Name:  Cookie Notice GDPR | inventivo
 Plugin URI:   https://www.inventivo.de/wordpress-agentur/wordpress-plugins
 Description:  Display the EU Cookie Notice in a popup (EU Cookie Guideline)
-Version:      0.3.2
+Version:      0.3.3
 Author:       Nils Harder
 Author URI:   https://www.inventivo.de
 Tags: cookie notice, cookie hinweis, eu cookie richtlinie, cookie popup, inventivo, gdpr, dsgvo
 Requires at least: 3.0
 Tested up to: 5.0
-Stable tag: 0.3.2
+Stable tag: 0.3.3
 Text Domain: inventivo-cookie-notice
 Domain Path: /languages
 License:      GPL2
@@ -133,6 +133,7 @@ class InvCookieSettingsPage
 			'buttontextcolor' => esc_attr($options['buttontextcolor']),
 			'buttoncolor' => esc_attr($options['buttoncolor']),
 			'buttonradius' => esc_attr($options['buttonradius']),
+			'layerradius' => esc_attr($options['layerradius']),
 			'backgroundcolor' => esc_attr($options['backgroundcolor']),
 			'backgroundcolor1' => esc_attr($options['backgroundcolor1']),
 			'backgroundcolor2' => esc_attr($options['backgroundcolor2']),
@@ -296,6 +297,13 @@ class InvCookieSettingsPage
 			'inventivo_cookienotice_setting_admin',
 			'setting_sections_colors'
 		);
+		add_settings_field(
+			'layerradius',
+			esc_html__( 'Layer Border Radius', 'inventivo-cookie-notice' ),
+			array( $this, 'layerradius_callback' ),
+			'inventivo_cookienotice_setting_admin',
+			'setting_sections_colors'
+		);
 
 		add_settings_field(
 			'backgroundcolor',
@@ -353,6 +361,9 @@ class InvCookieSettingsPage
 
 		if( isset( $input['buttonradius'] ) )
 			$new_input['buttonradius'] = sanitize_text_field( $input['buttonradius'] );
+
+		if( isset( $input['layerradius'] ) )
+			$new_input['layerradius'] = sanitize_text_field( $input['layerradius'] );
 
 		if( isset( $input['backgroundcolor'] ) )
 			$new_input['backgroundcolor'] = sanitize_text_field( $input['backgroundcolor'] );
@@ -451,6 +462,14 @@ class InvCookieSettingsPage
 		);
 	}
 
+	public function layerradius_callback()
+	{
+		printf(
+			'<input type="text" id="layerradius" name="inventivo_cookienotice_option_name[layerradius]" value="%s" /> '.__('Only for fullwidth Popup. Example: 5px 5px 0 0','inventivo-cookie-notice'),
+			isset( $this->options['layerradius'] ) ? esc_attr( $this->options['layerradius']) : __('5px 5px 0 0','inventivo-cookie-notice')
+		);
+	}
+
 	public function backgroundcolor_callback()
 	{
 		printf(
@@ -500,6 +519,7 @@ class InvCookieSettingsPage
 		);
 	}
 }
+
 
 if( is_admin() )
 	$my_settings_page = new InvCookieSettingsPage();
