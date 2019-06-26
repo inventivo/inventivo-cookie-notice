@@ -24,7 +24,7 @@ Visit our <a href="https://www.inventivo.de">website</a> in order to see the plu
 ### Prerequisites
 
 * WordPress 3.0 and later
-* Tested up to: 4.9.8
+* Tested up to: 5.2.2
 
 ### Installing
 
