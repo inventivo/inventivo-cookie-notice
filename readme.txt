@@ -1,29 +1,29 @@
-=== Cookie Notice GDPR | inventivo ===
+=== Cookie Notice | inventivo ===
 Contributors: inventivogermany
 Plugin Name:  Cookie Notice | inventivo
 Plugin URI:   https://www.inventivo.de/wordpress-agentur/wordpress-plugins
-Description:  Display the EU Cookie Notice in a popup (EU Cookie Guideline)
-Version:      0.3.4
+Description:  Display a cookie notice in a popup
+Version:      0.3.5
 Author:       Nils Harder
 Author URI:   https://www.inventivo.de
-Tags: cookie notice, cookie hinweis, eu cookie richtlinie, cookie popup, inventivo
+Tags: cookie notice, cookie hinweis, cookie popup, inventivo
 Requires at least: 3.0
-Tested up to: 5.2.2
-Stable tag: 0.3.4
+Tested up to: 5.2.4
+Stable tag: 0.3.5
 Text Domain: inventivo-cookie-notice
 Domain Path: /languages
 License:      GPL2
 License URI:  https://www.gnu.org/licenses/gpl-2.0.html
 
-Display the EU Cookie Notice in a popup (GDPR - EU Cookie Guideline)
+Display a Cookie Notice in a popup
 
 == Description ==
 
 NOTE: INSTALLING THIS PLUGIN ALONE DOES NOT MAKE YOUR SITE GDPR COMPLIANT. PLEASE CONSULT A LAWER IF YOU ARE NOT SURE WHAT TO DO.
 
-GDPR Cookie Notice - WordPress Plugin
+Cookie Notice - WordPress Plugin
 
-This plugin displays a cookie notice (GDPR) at the bottom of your WordPress website. You can choose between right, centered full width oder left placement of the popup and adopt colors and texts.
+This plugin displays a cookie notice at the bottom of your WordPress website. You can choose between right, centered full width oder left placement of the popup and adopt colors and texts.
 
 When the visitor clicks the accept button, a cookie is set for a certain amount of days (configurable). The cookie notice will show up again after the amount of days configured or once cookies are cleared.
 

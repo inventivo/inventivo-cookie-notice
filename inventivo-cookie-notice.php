@@ -1,15 +1,15 @@
 <?php /*
 Contributors: inventivogermany
-Plugin Name:  Cookie Notice GDPR | inventivo
+Plugin Name:  Cookie Notice | inventivo
 Plugin URI:   https://www.inventivo.de/wordpress-agentur/wordpress-plugins
-Description:  Display the EU Cookie Notice in a popup (EU Cookie Guideline)
-Version:      0.3.4
+Description:  Display a cookie notice in a popup
+Version:      0.3.5
 Author:       Nils Harder
 Author URI:   https://www.inventivo.de
-Tags: cookie notice, cookie hinweis, eu cookie richtlinie, cookie popup, inventivo, gdpr, dsgvo
+Tags: cookie notice, cookie hinweis, cookie popup, inventivo
 Requires at least: 3.0
-Tested up to: 5.0
-Stable tag: 0.3.4
+Tested up to: 5.2.4
+Stable tag: 0.3.5
 Text Domain: inventivo-cookie-notice
 Domain Path: /languages
 License:      GPL2
@@ -73,7 +73,7 @@ class InvCookieSettingsPage
             echo "<hr/><strong>Debug info</strong>:<br/>";
             //echo "WPLANG: ". WPLANG;
             echo "<br/>";
-            echo "translate test: ". __('Cookie Notice GDPR | inventivo','inventivo-cookie-notice');
+            echo "translate test: ". __('Cookie Notice | inventivo','inventivo-cookie-notice');
             exit();
         }
     }
@@ -155,7 +155,7 @@ class InvCookieSettingsPage
         // This page will be under "Settings"
         add_options_page(
             'Settings Admin',
-            esc_html__( 'Cookie Notice GDPR | inventivo', 'inventivo-cookie-notice' ),
+            esc_html__( 'Cookie Notice | inventivo', 'inventivo-cookie-notice' ),
             'manage_options',
             'inventivo_cookienotice_setting_admin',
             array( $this, 'create_admin_page' )
@@ -171,7 +171,7 @@ class InvCookieSettingsPage
         $this->options = get_option( 'inventivo_cookienotice_option_name' );
         ?>
         <div class="wrap">
-            <h1><?php esc_html_e( 'Cookie Notice GDPR | inventivo', 'inventivo-cookie-notice' ); ?></h1>
+            <h1><?php esc_html_e( 'Cookie Notice | inventivo', 'inventivo-cookie-notice' ); ?></h1>
             <form method="post" action="options.php">
                 <?php
                 // This prints out all hidden setting fields
