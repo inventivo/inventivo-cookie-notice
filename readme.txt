@@ -1,15 +1,16 @@
 === Cookie Notice | inventivo ===
 Contributors: inventivogermany
 Plugin Name:  Cookie Notice | inventivo
-Plugin URI:   https://www.inventivo.de/wordpress-agentur/wordpress-plugins
-Description:  Display a cookie notice in a popup
-Version:      0.3.5
+Plugin URI:   https://www.inventivo.de/webseiten/wordpress-plugins
+Description:  Display a Cookie Notice in a popup
+Version:      1.0.6
 Author:       Nils Harder
 Author URI:   https://www.inventivo.de
 Tags: cookie notice, cookie hinweis, cookie popup, inventivo
-Requires at least: 3.0
-Tested up to: 5.2.4
-Stable tag: 0.3.5
+Requires at least: 5.0
+Requires PHP: 7.4
+Tested up to: 7.1
+Stable tag: 1.0.6
 Text Domain: inventivo-cookie-notice
 Domain Path: /languages
 License:      GPL2
@@ -19,7 +20,7 @@ Display a Cookie Notice in a popup
 
 == Description ==
 
-NOTE: INSTALLING THIS PLUGIN ALONE DOES NOT MAKE YOUR SITE GDPR COMPLIANT. PLEASE CONSULT A LAWER IF YOU ARE NOT SURE WHAT TO DO.
+NOTE: INSTALLING THIS PLUGIN ALONE DOES NOT MAKE YOUR SITE GDPR COMPLIANT. PLEASE CONSULT A LAWYER IF YOU ARE NOT SURE WHAT TO DO.
 
 Cookie Notice - WordPress Plugin
 
@@ -32,9 +33,9 @@ Visit our <a href="https://www.inventivo.de">website</a> in order to see the plu
 Small and simple:
 - Responsive - fits to all screens
 - Easy configuration
-- Lighweight code
+- Lightweight code
 
-Get your Cookie notice GDPR Plugin now!
+Get your Cookie notice Plugin now!
 
 How it works:
 
@@ -58,6 +59,10 @@ Use WordPress' Add New Plugin feature, searching "Cookie Notice | inventivo", or
 
 
 == Changelog ==
+
+1.0.6 Tested with WordPress 7.1 on PHP 7.4, 8.3 and 8.4. Settings now fall back to defaults, which removes the PHP 8 warnings that occurred on every page view before the first save. Dismissing the admin notice now requires a valid nonce, which closes a request forgery gap without locking out editors and authors. Translations are loaded on init. Replaced the deprecated jQuery click() shorthand. The admin notice now links to a page that exists again, and its stylesheet uses a plugin specific handle so it no longer collides with our other plugins.
+0.3.5 Updated plugin description
+
 0.3.0 Added advanced style control, background can be gradient
 
 0.2.7 Added wpml-config.xml and switched to github

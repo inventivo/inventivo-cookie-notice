@@ -1,15 +1,16 @@
 <?php /*
 Contributors: inventivogermany
 Plugin Name:  Cookie Notice | inventivo
-Plugin URI:   https://www.inventivo.de/wordpress-agentur/wordpress-plugins
-Description:  Display a cookie notice in a popup
-Version:      0.3.5
+Plugin URI:   https://www.inventivo.de/webseiten/wordpress-plugins
+Description:  Display a Cookie Notice in a popup
+Version:      1.0.6
 Author:       Nils Harder
 Author URI:   https://www.inventivo.de
 Tags: cookie notice, cookie hinweis, cookie popup, inventivo
-Requires at least: 3.0
-Tested up to: 5.2.4
-Stable tag: 0.3.5
+Requires at least: 5.0
+Requires PHP: 7.4
+Tested up to: 7.1
+Stable tag: 1.0.6
 Text Domain: inventivo-cookie-notice
 Domain Path: /languages
 License:      GPL2
@@ -35,7 +36,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // Version of the plugin
-define('INVENTIVO_COOKIE_NOTICE_CURRENT_VERSION', '1.0.0' );
+define('INVENTIVO_COOKIE_NOTICE_CURRENT_VERSION', '1.0.2' );
 
 class InvCookieSettingsPage
 {
@@ -49,11 +50,13 @@ class InvCookieSettingsPage
      */
     public function __construct()
     {
-        add_action('plugins_loaded',array($this,'inventivo_cookie_notice_load_textdomain'));
-        //add_action('init',array($this,'my_i18n_debug'));
+        add_action('init', array($this, 'inventivo_cookie_notice_load_textdomain'));
         add_action( 'admin_menu', array( $this, 'add_plugin_page' ) );
         add_action( 'admin_init', array( $this, 'page_init' ) );
-
+        add_action('admin_notices', array($this, 'admin_notice_get_pro'));
+        add_action('admin_enqueue_scripts', array($this, 'inv_admin_style'));
+        add_action( 'admin_init', array($this, 'notice_dismissed') );
+        register_deactivation_hook( __FILE__, array($this, 'plugin_deactivate') );
     }
 
 
@@ -61,28 +64,54 @@ class InvCookieSettingsPage
         load_plugin_textdomain( 'inventivo-cookie-notice', false, dirname( plugin_basename( __FILE__ ) ) . '/languages');
     }
 
-    function my_i18n_debug(){
 
-        $loaded=load_plugin_textdomain( 'inventivo-cookie-notice', false, dirname( plugin_basename( __FILE__ ) ) . '/languages');
+    /**
+     * Reads an option and always returns an array.
+     *
+     * A cast to (array) would turn false into the stray key 0.
+     */
+    public static function get_options_array( $name )
+    {
+        $stored = get_option( $name, array() );
 
-        if ( ! $loaded ){
-            echo "<hr/>";
-            echo "Error: the mo file was not found! ";
-            exit();
-        }else{
-            echo "<hr/><strong>Debug info</strong>:<br/>";
-            //echo "WPLANG: ". WPLANG;
-            echo "<br/>";
-            echo "translate test: ". __('Cookie Notice | inventivo','inventivo-cookie-notice');
-            exit();
-        }
+        return is_array( $stored ) ? $stored : array();
     }
 
+    /**
+     * Standardwerte der Einstellungen.
+     *
+     * Ohne sie liefert get_option() vor dem ersten Speichern false, und jeder
+     * Feldzugriff erzeugt unter PHP 8 eine Warnung.
+     */
+    public static function get_default_options()
+    {
+        return array(
+            'domain'           => '',
+            'privacylink'      => '',
+            'privacylinktext'  => '',
+            'cookietext'       => '',
+            'cookietextcolor'  => '#555555',
+            'buttontext'       => '',
+            'buttontextcolor'  => '#FFFFFF',
+            'buttoncolor'      => '#646464',
+            'buttonradius'     => '20px',
+            'layerradius'      => '5px 5px 0 0',
+            'backgroundcolor'  => '#EFEFEF',
+            'backgroundcolor1' => '#EFEFEF',
+            'backgroundcolor2' => '#EFEFEF',
+            'backgroundcolor3' => '#EFEFEF',
+            'alignment'        => 'right',
+            'cookieduration'   => '365',
+        );
+    }
 
     // Load Frontend Scripts + Styles
     public function inv_cookie_notice_styles() {
 
-        $options = get_option( 'inventivo_cookienotice_option_name' );
+        $options = wp_parse_args(
+            self::get_options_array( 'inventivo_cookienotice_option_name' ),
+            self::get_default_options()
+        );
 
         switch($options['alignment']) {
             case 'left':
@@ -168,7 +197,10 @@ class InvCookieSettingsPage
     public function create_admin_page()
     {
         // Set class property
-        $this->options = get_option( 'inventivo_cookienotice_option_name' );
+        $this->options = wp_parse_args(
+            self::get_options_array( 'inventivo_cookienotice_option_name' ),
+            self::get_default_options()
+        );
         ?>
         <div class="wrap">
             <h1><?php esc_html_e( 'Cookie Notice | inventivo', 'inventivo-cookie-notice' ); ?></h1>
@@ -515,6 +547,63 @@ class InvCookieSettingsPage
             '<input type="text" id="cookieduration" name="inventivo_cookienotice_option_name[cookieduration]" value="%s" /> '.__('Example: 365','inventivo-cookie-notice'),
             isset( $this->options['cookieduration'] ) ? esc_attr( $this->options['cookieduration']) : __('365','inventivo-cookie-notice')
         );
+    }
+
+    public function admin_notice_get_pro() {
+        $user_id = get_current_user_id();
+        if (!get_user_meta( $user_id, 'inv_notice_dismissed')) {
+            echo '<div class="notice notice-success is-dismissible">
+                <div class="hreflang-x-default-tag-for-wpml-inventivo-wrapper">
+                    <div class="hreflang-x-default-tag-for-wpml-inventivo-element">
+                        <a href="https://www.inventivo.de/webseiten/wordpress-plugins" target="_blank">
+                            <img src="' . esc_url( plugins_url( 'admin/images/icon-256x256-1.png', __FILE__ ) ) . '" />
+                        </a>
+                    </div>
+                    <div class="hreflang-x-default-tag-for-wpml-inventivo-element">
+                        <h2>More free WordPress plugins</h2>
+                        <p><strong>Thanks for using this plugin.</strong><br />
+                        We build small and focused WordPress plugins and publish them for free.<br />
+                        </p>
+                        <p>
+                            <a class="wp-core-ui button" target="_blank" href="https://www.inventivo.de/webseiten/wordpress-plugins" style="color: #FFFFFF; background: #A6CE38; border-color: #A6CE38">
+                            See all our plugins
+                            </a>
+                            <br /><br />
+                            <a href="' . esc_url( wp_nonce_url( add_query_arg( 'inv-notice-dismissed', '1' ), 'inv_notice_dismiss' ) ) . '" style="color: #AAAAAA;">Dismiss</a>
+                        </p>
+                    </div>
+                </div>
+            </div>';
+        }
+    }
+
+    public function inv_admin_style() {
+        wp_enqueue_style('inventivo-cookie-notice-admin-styles', plugins_url('admin/css/admin-styles.css', __FILE__));
+    }
+
+    public function notice_dismissed()
+    {
+        if ( ! isset( $_GET['inv-notice-dismissed'] ) ) {
+            return;
+        }
+
+        if ( ! current_user_can( 'read' ) ) {
+            return;
+        }
+
+        $nonce = isset( $_GET['_wpnonce'] ) ? sanitize_text_field( wp_unslash( $_GET['_wpnonce'] ) ) : '';
+
+        if ( ! wp_verify_nonce( $nonce, 'inv_notice_dismiss' ) ) {
+            return;
+        }
+
+        add_user_meta( get_current_user_id(), 'inv_notice_dismissed', 'true', true );
+    }
+
+    public function plugin_deactivate()
+    {
+        $user_id = get_current_user_id();
+        delete_user_meta($user_id, 'inv_notice_dismissed');
     }
 }
 
