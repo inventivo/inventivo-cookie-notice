@@ -551,7 +551,7 @@ class InvCookieSettingsPage
 
     public function admin_notice_get_pro() {
         $user_id = get_current_user_id();
-        if (!get_user_meta( $user_id, 'inv_notice_dismissed')) {
+        if ( ! get_user_meta( $user_id, 'inv_notice_dismissed_cookie_notice' ) && ! get_user_meta( $user_id, 'inv_notice_dismissed' ) ) {
             echo '<div class="notice notice-success is-dismissible">
                 <div class="hreflang-x-default-tag-for-wpml-inventivo-wrapper">
                     <div class="hreflang-x-default-tag-for-wpml-inventivo-element">
@@ -578,6 +578,10 @@ class InvCookieSettingsPage
     }
 
     public function inv_admin_style() {
+        if ( get_user_meta( get_current_user_id(), 'inv_notice_dismissed_cookie_notice' ) || get_user_meta( get_current_user_id(), 'inv_notice_dismissed' ) ) {
+        	return;
+        }
+
         wp_enqueue_style('inventivo-cookie-notice-admin-styles', plugins_url('admin/css/admin-styles.css', __FILE__));
     }
 
@@ -597,13 +601,13 @@ class InvCookieSettingsPage
             return;
         }
 
-        add_user_meta( get_current_user_id(), 'inv_notice_dismissed', 'true', true );
+        add_user_meta( get_current_user_id(), 'inv_notice_dismissed_cookie_notice', 'true', true );
     }
 
     public function plugin_deactivate()
     {
         $user_id = get_current_user_id();
-        delete_user_meta($user_id, 'inv_notice_dismissed');
+        delete_user_meta( $user_id, 'inv_notice_dismissed_cookie_notice' );
     }
 }
 
