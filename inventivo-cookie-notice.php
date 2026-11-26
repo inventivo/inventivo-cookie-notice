@@ -3,14 +3,13 @@ Contributors: inventivogermany
 Plugin Name:  Cookie Notice | inventivo
 Plugin URI:   https://www.inventivo.de/webseiten/wordpress-plugins
 Description:  Display a Cookie Notice in a popup
-Version:      1.0.6
+Version:      1.0.7
 Author:       Nils Harder
 Author URI:   https://www.inventivo.de
 Tags: cookie notice, cookie hinweis, cookie popup, inventivo
 Requires at least: 5.0
 Requires PHP: 7.4
-Tested up to: 7.1
-Stable tag: 1.0.6
+Stable tag: 1.0.7
 Text Domain: inventivo-cookie-notice
 Domain Path: /languages
 License:      GPL2
@@ -36,7 +35,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // Version of the plugin
-define('INVENTIVO_COOKIE_NOTICE_CURRENT_VERSION', '1.0.2' );
+define('INVENTIVO_COOKIE_NOTICE_CURRENT_VERSION', '1.0.7' );
 
 class InvCookieSettingsPage
 {
@@ -526,6 +525,7 @@ class InvCookieSettingsPage
 
     public function alignment_callback()
     {
+        $selected1 = $selected2 = $selected3 = $selected4 = '';
         if($this->options['alignment'] == 'left') { $selected1 = 'selected'; }
         if($this->options['alignment'] == 'fullwidth') { $selected2 = 'selected'; }
         if($this->options['alignment'] == 'right') { $selected3 = 'selected'; }
